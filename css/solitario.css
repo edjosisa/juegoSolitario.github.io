@@ -1,0 +1,330 @@
+/**
+	Especificaciones CSS para el juego del solitario
+*/
+
+/* /*** !!!!!!!!!!!!!!!!!!! CODIGO !!!!!!!!!!!!!!!!!!!!
+	Completar los estilos que faltan y modificar al gusto del alumno
+**/
+:root {
+    --color-principal: #e65014;
+    --color-principalactive: #ff6b30;
+    --color-principalhover: #993007;
+    --color-white: #f3f3f3;
+    --color-black: #32353d;
+    --color-transp: #111111cc;
+    --color-sombra: #666666;
+    --color-verde: #216323;
+    --color-azul: #0a163d;
+    --color-rojo: #3d0a0a;
+    --color-verdeoscuro: #21632377;
+    --color-azuloscuro: #0a163d66;
+    --color-rojooscuro: #3d0a0a66;
+    --color-tapetesobrante: #f3f3f3aa;
+  
+    --mesa-intermedia: "../imagenes/mesa_azul.png";
+    --mesa-dificil: "../imagenes/mesa_roja.png";
+  
+    --bordes-receptores: var(--color-verdeoscuro);
+    --resplandor-receptores: var(--color-verdeoscuro);
+  }
+  * {
+    font-family: "Montserrat", sans-serif;
+  }
+  html,
+  body,
+  .container_body,
+  .subcontainer {
+    width: 100%;
+    height: 100%;
+  }
+  
+  /* Cambiar color principal de bootstrap en botones */
+  .btn-primary,
+  .btn-primary:focus {
+    background-color: var(--color-principal);
+    border: none;
+  }
+  .btn-primary:not(:disabled):not(.disabled):active,
+  .btn-primary:not(:disabled):not(.disabled).active {
+    background-color: var(--color-principalactive);
+    border: none;
+  }
+  .btn-primary:hover {
+    background-color: var(--color-principalhover);
+    border: none;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  .pos-relative {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  .cartas {
+    filter: drop-shadow(0px 0px 1px var(--color-sombra));
+  }
+  .tapetesubinicial {
+    position: absolute;
+    top: 16%;
+    bottom: 16%;
+    left: 0;
+    right: 0;
+    display: flex;
+    width: 0px;
+    margin: auto;
+  }
+  
+  .puntero {
+    cursor: pointer;
+  }
+  .drag-over-sobrantes {
+    box-shadow: 0px 0px 20px var(--color-white);
+  }
+  .drag-over-receptores {
+    box-shadow: 0px 0px 20px var(--resplandor-receptores);
+  }
+  
+  .container_body {
+    position: relative;
+  }
+  .subcontainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    min-width: 500px;
+    min-height: 500px;
+  }
+  .pantalla_previa {
+    background: var(--color-white);
+  }
+  .central {
+    background: var(--color-white);
+  }
+  .tapete_central {
+    height: 150px;
+  }
+  
+  .central button {
+    display: block;
+    margin: auto;
+    font-weight: bold;
+    margin-top: 30px;
+    padding: 10px 50px;
+    font-size: 1em;
+  }
+  h1 img {
+    height: 70px;
+  }
+  
+  /* Todos los contadores estarán ubicados en la parte inferior
+     derecha (position absolute) de los respectivos tapetes (position relative).
+  */
+  .contador {
+    position: absolute;
+    bottom: 2px;
+    right: 3px;
+    height: 20px;
+    width: 100%;
+    color: var(--color-white);
+    font-weight: bold;
+    text-align: right;
+    font-size: 1.2em;
+  }
+  
+  /* Centrado del título y color */
+  h1#titulo {
+    text-align: center;
+    color: var(--color-principal);
+    font-weight: bold;
+    font-size: 2.5em;
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  /* Centrado de los marcadores de tiempo y movimientos */
+  h2#marcadores {
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: bold;
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  /* Mesa que contiene a los tapetes centrados */
+  div#mesa {
+    text-align: center;
+    background-image: url("../imagenes/mesa_verde.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: drop-shadow(1px 1px 5px var(--color-sombra));
+    padding: 20px;
+    height: 500px;
+    width: 1000px;
+    margin: auto;
+  }
+  
+  .flex {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 20px;
+    margin: auto;
+  }
+  #pantallaPrevia p {
+    text-align: center;
+    font-weight: bold;
+    font-style: italic;
+    margin-top: 50px;
+  }
+  .btnlvl {
+    display: block;
+    margin-top: 20px;
+    font-weight: bold;
+    color: var(--color-white);
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+  }
+  .btnlvl:hover {
+    color: var(--color-black);
+  }
+  #lvl-easy {
+    background-color: var(--color-verde);
+  }
+  #lvl-easy:hover {
+    background-color: var(--color-verdeoscuro);
+  }
+  #lvl-medium {
+    background-color: var(--color-azul);
+  }
+  #lvl-medium:hover {
+    background-color: var(--color-azuloscuro);
+  }
+  #lvl-hard {
+    background-color: var(--color-rojo);
+  }
+  #lvl-hard:hover {
+    background-color: var(--color-rojooscuro);
+  }
+  
+  /* Todos los tapetes con position relative para que
+     los respectivos mazos (arrays de <img>) puedan
+     posicionarse de manera absoluta respecto a ellos */
+  div.tapete {
+    display: inline-block;
+    position: relative;
+    margin: 10px;
+  }
+  
+  /* Dimensiones y color de fondo para el tapete inicial */
+  div.tapete#inicial {
+    width: 800px;
+    height: 125px;
+    /* Eliminamos el color del tapete para dar un estilo
+          mas a mesa de juegos y se pueda apreciar el fondo.*/
+    border-bottom: 3px solid var(--bordes-receptores);
+  }
+  
+  /* Dimensiones para todos los tapetes salvo el inicial */
+  div.tapete:not(#inicial) {
+    height: 125px;
+    width: 100px;
+  }
+  
+  /* Color de fondo para el tapete de las cartas sobrantes */
+  div.tapete#sobrantes {
+    /* Eliminamos los colores de los tapetes para dar un estilo
+          mas a mesa de juegos y se pueda apreciar el fondo.*/
+    border: 3px solid var(--color-tapetesobrante);
+    float: right;
+    margin-right: 20px;
+  }
+  
+  /* Color de fondo de los tapetes receptores */
+  div.tapete.receptor {
+    /* Eliminamos el color del tapete para dar un estilo
+          mas a mesa de juegos y se pueda apreciar el fondo.*/
+    border: 3px solid var(--bordes-receptores);
+  }
+  
+  /* Small devices (tablets, 768px and up) */
+  @media screen and (max-width: 991px) {
+    .central button {
+      margin-top: 5px;
+      padding: 5px 20px;
+      font-size: 0.7em;
+    }
+    h1#titulo {
+      font-size: 2em;
+    }
+    h1#titulo,
+    h2#marcadores {
+      width: 500px;
+    }
+    div#mesa {
+      height: 290px;
+      width: 500px;
+    }
+    div.tapete#inicial {
+      width: 400px;
+      height: 60px;
+    }
+    div.tapete:not(#inicial) {
+      height: 60px;
+      width: 50px;
+    }
+    .tapete_central {
+      height: 80px;
+    }
+    h2#marcadores {
+      font-size: 1em;
+    }
+    .contador {
+      font-size: 0.5em;
+      bottom: 1px;
+      right: 1px;
+      height: 8px;
+    }
+  }
+  
+  /* Medium devices (desktops, 992px and up) */
+  @media screen and (min-width: 992px) and (max-width: 1199px) {
+    h1#titulo,
+    h2#marcadores {
+      width: 800px;
+    }
+    div#mesa {
+      height: 400px;
+      width: 800px;
+    }
+    div.tapete#inicial {
+      width: 640px;
+      height: 100px;
+    }
+    div.tapete:not(#inicial) {
+      height: 100px;
+      width: 80px;
+    }
+    .tapete_central {
+      height: 120px;
+    }
+    h2#marcadores {
+      font-size: 1.2em;
+    }
+    .contador {
+      font-size: 0.8em;
+      bottom: 1px;
+      right: 2px;
+      height: 15px;
+    }
+  }
+  
